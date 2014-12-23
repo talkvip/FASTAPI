@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" ?>
+<templates xmlns="http://www.fixprotocol.org/ns/td" ns="http://www.fixprotocol.org/ns/fast/td/1.1">
+
+  <!-- FAST证券信息模版-->
+  <template id="101" name="StockInfo">
+    <uInt32 id="8926" presence="mandatory" name="RecNo">
+      <increment dictionary="template" key="8926" />
+    </uInt32>
+    <string id="48" presence="mandatory" name="SecurityID" />
+    <string id="55" presence="mandatory" charset="unicode" name="Symbol" />
+    <string id="107" presence="mandatory" name="SecurityDesc" />
+    <string id="309" presence="optional" name="UnderlyingSecurityID" />
+    <string id="22" presence="mandatory" name="SecurityIDSource">
+      <default value="102" dictionary="template" key="22" />
+    </string>
+    <sequence id="454" presence="optional" name="SecurityAltIDs">
+      <string id="455" presence="mandatory" name="SecurityAltID" />
+      <string id="456" presence="mandatory" name="SecurityAltIDSource" />
+    </sequence>
+    <string id="8507" presence="optional" name="IndustryClassification" />
+    <string id="15" presence="optional" name="Currency">
+      <default value="CNY" dictionary="template" key="15" />
+    </string>
+    <uInt32 id="8508" presence="optional" name="ShareFaceValue" precision="3">
+      <copy dictionary="template" key="8508" />
+    </uInt32>
+    <uInt64 id="8509" presence="optional" name="OutstandingShare" />
+    <uInt64 id="8510" presence="optional" name="PublicFloatShareQuantity" />
+    <int32 id="8511" presence="optional" name="PreviousYearProfitPerShare" precision="4" />
+    <int32 id="8512" presence="optional" name="CurrentYearProfitPerShare" precision="4" />
+    <uInt32 id="8537" presence="optional" name="NAV" precision="4" />
+    <sequence id="136" presence="optional" name="MiscFees">
+      <string id="139" presence="mandatory" name="MiscFeeType" />
+      <uInt32 id="891" presence="mandatory" name="MiscFeeBasis">
+        <copy dictionary="template" key="891" />
+      </uInt32>
+      <uInt32 id="137" presence="mandatory" name="MiscFeeAmt" precision="6" />
+    </sequence>
+    <uInt32 id="225" presence="mandatory" name="IssueDate" />
+    <string id="10106" presence="optional" name="BondType">
+      <copy dictionary="template" key="10106" />
+    </string>
+    <uInt32 id="223" presence="optional" name="CouponRate" precision="6" />
+    <uInt32 id="10103" presence="optional" name="ConversionPrice" precision="3" />
+    <string id="10107" presence="optional" name="American/European" />
+    <string id="10108" presence="optional" name="CallOrPut" />
+    <string id="8536" presence="optional" name="WarrantClearingType">
+      <copy dictionary="template" key="8536" />
+    </string>
+    <uInt32 id="10114" presence="optional" name="CVRatio" precision="4" />
+    <uInt32 id="8902" presence="optional" name="ConversionBeginDate" />
+    <uInt32 id="8903" presence="optional" name="ConversionEndDate" />
+    <uInt32 id="874" presence="optional" name="InterestAccrualDate" />
+    <uInt32 id="541" presence="optional" name="MaturityDate" />
+    <uInt32 id="561" presence="optional" name="RoundLot">
+      <copy dictionary="template" key="561" />
+    </uInt32>
+    <uInt32 id="8513" presence="optional" name="BidLotSize">
+      <copy dictionary="template" key="8513" />
+    </uInt32>
+    <uInt32 id="8514" presence="optional" name="AskLotSize">
+      <copy dictionary="template" key="8514" />
+    </uInt32>
+    <uInt32 id="111" presence="optional" name="MaxFloor">
+      <copy dictionary="template" key="111" />
+    </uInt32>
+    <string id="8905" presence="optional" name="TradeMethod">
+      <copy dictionary="template" key="8905" />
+    </string>
+    <uInt32 id="8515" presence="optional" name="PriceTickSize" precision="3" >
+      <copy dictionary="template" key="8515" />
+    </uInt32>
+    <string id="8516" presence="optional" name="PriceLimitType">
+      <copy dictionary="template" key="8516" />
+    </string>
+    <uInt32 id="8517" presence="optional" name="AuctionPriceLimit" precision="3" >
+      <copy dictionary="template" key="8517" />
+    </uInt32>
+    <uInt32 id="8518" presence="optional" name="ContinuousTradePriceLimit" precision="3" >
+      <copy dictionary="template" key="8518" />
+    </uInt32>
+    <uInt32 id="8519" presence="optional" name="DailyPriceUpLimit" precision="3" />
+    <uInt32 id="8520" presence="optional" name="DailyPriceLowLimit" precision="3" />
+    <uInt32 id="8911" presence="optional" name="DailyPriceUpLimit2" precision="3" />
+    <uInt32 id="8912" presence="optional" name="DailyPriceLowLimit2" precision="3" />
+    <uInt32 id="231" presence="optional" name="ContractMultiplier" precision="3" />
+    <uInt32 id="8913" presence="optional" name="GageRate" precision="2" />
+    <string id="8914" presence="optional" name="CrdBuyUnderlying">
+      <copy dictionary="template" key="8914" />
+    </string>
+    <string id="8915" presence="optional" name="CrdSellUnderlying">
+      <copy dictionary="template" key="8915" />
+    </string>
+    <sequence id="8522" presence="optional" name="IndicesParticipated">
+      <string id="8528" presence="mandatory" name="participatingIndexID" />
+    </sequence>
+    <string id="8916" presence="optional" name="MarketMakerFlag">
+      <copy dictionary="template" key="8916" />
+    </string>
+    <string id="207" presence="optional" name="SecurityExchange">
+      <default value="XSHE" dictionary="template" key="207" />
+    </string>
+    <string id="461" presence="mandatory" name="CFICode">
+      <copy dictionary="template" key="461" />
+    </string>
+    <string id="762" presence="mandatory" name="SecuritySubType">
+      <copy dictionary="template" key="762" />
+    </string>
+    <string id="8521" presence="optional" name="SecurityProperties">
+      <copy value="N" dictionary="template" key="8521" />
+    </string>
+    <uInt32 id="326" presence="optional" name="SecurityTradingStatus">
+      <default value="103" dictionary="template" key="326" />
+    </uInt32>
+    <string id="292" presence="optional" name="CorporateAction">
+      <default value="N" dictionary="template" key="292" />
+    </string>
+    <string id="8906" presence="optional" name="TradingMechanism">
+      <default value="G" dictionary="template" key="8906" />
+    </string>
+    <string id="8925" presence="optional" name="CrdPriceCheckType">
+      <default value="1" dictionary="template" key="8925" />
+    </string>
+    <string id="8904" presence="optional" name="NetVotingFlag">
+      <default value="N" dictionary="template" key="8904" />
+    </string>
+    <string id="8917" presence="optional" name="ShrstrurefmFlag">
+      <default value="Y" dictionary="template" key="8917" />
+    </string>
+    <string id="8918" presence="optional" name="OfferingFlag">
+      <default value="N" dictionary="template" key="8918" />
+    </string>
+  </template>
+  
+  <!-- FAST证券状态模版 -->
+  <template id="102" name="StockStatus">
+    <string id="48" presence="mandatory" name="SecurityID" />
+    <string id="8901" presence="mandatory" name="SecurityPreName" />
+    <string id="8538" presence="mandatory" name="TradingPhaseCode">
+      <copy value="0" dictionary="template" key="8538" />
+    </string>
+    <string id="8919" presence="optional" name="CrdBuyStatus">
+      <copy value="Y" dictionary="template" key="8919" />
+    </string>
+    <string id="8920" presence="optional" name="CrdSellStatus">
+      <copy value="Y" dictionary="template" key="8920" />
+    </string>
+    <string id="8921" presence="optional" name="SubScribeStatus">
+      <copy value="Y" dictionary="template" key="8921" />
+    </string>
+    <string id="8922" presence="optional" name="RedemptionStatus">
+      <copy value="Y" dictionary="template" key="8922" />
+    </string>
+    <string id="8923" presence="optional" name="WarrantCreated">
+      <copy value="N" dictionary="template" key="8923" />
+    </string>
+    <string id="8924" presence="optional" name="WarrantDropped">
+      <copy value="N" dictionary="template" key="8924" />
+    </string>
+  </template>
+  
+  <!-- FAST行情模版-->
+  <template id="103" name="Snapshot">
+    <int32 id="10178" presence="mandatory" name="DataTimeStamp">
+      <delta dictionary="template" key="10178" />
+    </int32>
+    <string id="48" presence="mandatory" name="SecurityID" />
+    <uInt32 id="140" presence="mandatory" name="PreClosePx" precision="3" />
+    <uInt32 id="10018" presence="mandatory" name="OpenPx" precision="3" />
+    <uInt32 id="332" presence="mandatory" name="HighPx" precision="3" />
+    <uInt32 id="333" presence="mandatory" name="LowPx" precision="3" />
+    <uInt32 id="31" presence="mandatory" name="LastPx" precision="3" />
+    <uInt64 id="8503" presence="mandatory" name="NumTrades" />
+    <uInt64 id="387" presence="mandatory" name="TotalVolumeTrade" />
+    <uInt64 id="8504" presence="mandatory" name="TotalValueTrade" precision="3" />
+    <uInt64 id="8506" presence="mandatory" name="TotalLongPosition" />
+    <uInt32 id="8524" presence="mandatory" name="PERatio1" precision="2" />
+    <uInt32 id="8525" presence="mandatory" name="PERatio2" precision="2" />
+    <string id="10004" presence="mandatory" name="EndOfDayMaker">
+      <copy value="Y" dictionary="template" key="10004" />
+    </string>
+    <uInt64 id="10044" presence="optional" name="TotalOfferQty" />
+    <uInt64 id="10040" presence="optional" name="WeightedAvgOfferPx" precision="3" />
+    <sequence id="10069" presence="optional" name="OfferPriceLevel">
+      <uInt32 id="133" presence="mandatory" name="OfferPx" precision="3" />
+      <uInt64 id="135" presence="mandatory" name="OfferSize" />
+      <uInt32 id="10067" presence="mandatory" name="NumOrders" />
+      <sequence id="73" presence="optional" name="Orders">
+        <uInt32 id="38" presence="mandatory" name="OrderQty" />
+      </sequence>
+    </sequence>
+    <uInt64 id="10043" presence="optional" name="TotalBidQty" />
+    <uInt64 id="10039" presence="optional" name="WeightedAvgBidPx" precision="3" />
+    <sequence id="10068" presence="optional" name="BidPriceLevel">
+      <uInt32 id="132" presence="mandatory" name="BidPx" precision="3" />
+      <uInt64 id="134" presence="mandatory" name="BidSize" />
+      <uInt32 id="10067" presence="mandatory" name="NumOrders" />
+      <sequence id="73" presence="optional" name="Orders">
+        <uInt32 id="38" presence="mandatory" name="OrderQty" />
+      </sequence>
+    </sequence>
+  </template>
+  
+  <!-- FAST指数模版 -->
+  <template id="104" name="Index">
+    <int32 id="10178" presence="mandatory" name="DataTimeStamp">
+      <delta dictionary="template" key="10178" />
+    </int32>
+    <string id="48" presence="mandatory" name="SecurityID" />
+    <uInt64 id="10007" presence="mandatory" name="CloseIndex" precision="4" />
+    <uInt64 id="10006" presence="mandatory" name="OpenIndex" precision="4" />
+    <uInt64 id="10009" presence="mandatory" name="HighIndex" precision="4" />
+    <uInt64 id="10010" presence="mandatory" name="LowIndex" precision="4" />
+    <uInt64 id="10008" presence="mandatory" name="LastIndex" precision="4" />
+    <uInt64 id="10118" presence="optional" name="TurnOver" precision="3" />
+    <uInt64 id="8503" presence="optional" name="NumTrades" />
+    <uInt64 id="387" presence="optional" name="TotalVolumeTraded" />
+    <string id="10004" presence="mandatory" name="EndOfDayMaker">
+      <copy value="Y" dictionary="template" key="10004" />
+    </string>
+  </template>
+  
+  <!-- FAST委托模版 -->
+  <template id="201" name="Order">
+    <uInt32 id="10115" presence="mandatory" name="SetNo">
+      <copy dictionary="template" key="10115" />
+    </uInt32>
+    <uInt32 id="8926" presence="mandatory" name="RecNo">
+      <increment dictionary="template" key="8926" />
+    </uInt32>
+    <string id="48" presence="mandatory" name="SecurityID" />
+    <uInt32 id="44" presence="mandatory" name="Price" precision="3" />
+    <uInt32 id="38" presence="mandatory" name="OrderQty" />
+    <string id="8930" presence="mandatory" name="OrderKind" />
+    <string id="8931" presence="mandatory" name="FunctionCode" />
+    <int32 id="8500" presence="mandatory" name="OrderEntryTime">
+      <delta dictionary="template" key="8500" />
+    </int32>
+  </template>
+  
+  <!-- FAST成交模版 -->
+  <template id="202" name="Trade">
+    <uInt32 id="10115" presence="mandatory" name="SetNo">
+      <copy dictionary="template" key="10115" />
+    </uInt32>
+    <uInt32 id="8926" presence="mandatory" name="RecNo">
+      <increment dictionary="template" key="8926" />
+    </uInt32>
+    <uInt32 id="10116" presence="mandatory" name="BuyOrderRecNo" />
+    <uInt32 id="10117" presence="mandatory" name="SellOrderRecNo" />
+    <string id="48" presence="mandatory" name="SecurityID" />
+    <uInt32 id="44" presence="mandatory" name="Price" precision="3" />
+    <uInt32 id="10015" presence="mandatory" name="TradeQty" />
+    <string id="8930" presence="mandatory" name="OrderKind" />
+    <string id="8931" presence="mandatory" name="FunctionCode" />
+    <int32 id="10013" presence="mandatory" name="TradeTime">
+      <delta dictionary="template" key="10013" />
+    </int32>
+  </template>
+
+</templates>

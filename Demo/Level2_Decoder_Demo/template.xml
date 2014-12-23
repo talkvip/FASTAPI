@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates version="2.08" updateDate="2013-11-12" xmlns="http://www.fixprotocol.org/ns/template-definition" templateNs="http://www.fixprotocol.org/ns/templates/sample" ns="http://www.fixprotocol.org/ns/fix"> 
+    <template name="MarketOverview" id="1115">
+        <string name="MessageType" id="35"><constant value="UA1115"/></string>
+        <int32 name="DataTimestamp" id="10178"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+        <string name="SecurityID" id="48" presence="optional"/>
+        <int32 name="AShareIndex" id="10001" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="BShareIndex" id="10002" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="SSEIndex" id="10005" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="OrigTime" id="42" presence="optional"><default/></int32>
+        <int32 name="OrigDate" id="10003" presence="optional"><default/></int32>
+        <string name="EndOfDayMarker" id="10004" presence="optional"><default/></string>
+    </template>
+    <template name="A+HMarketData" id="2102">
+        <string name="MessageType" id="35"><constant value="UA2102"/></string>
+        <int32 name="DataTimestamp" id="10178"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+        <string name="SecurityID" id="48"/>
+        <string name="Symbol" id="55" charset="unicode"/>
+        <int32 name="PreClosePx" id="140" decimalPlaces="3"/>
+        <int32 name="HighPx" id="332" decimalPlaces="3"/>
+        <int32 name="LowPx" id="333" decimalPlaces="3"/>
+        <int32 name="LastPx" id="31" decimalPlaces="3"/>
+        <int32 name="NorminalPx" id="10078" decimalPlaces="3"/>
+        <int32 name="BidPx" id="132" decimalPlaces="3"/>
+        <int32 name="OfferPx" id="133" decimalPlaces="3"/>
+        <int64 name="TotalVolumeTrade" id="387"/>
+        <int64 name="TotalValueTrade" id="8504"/>
+    </template>
+    <template name="A+HVirtualAuctionPrice" id="2107">
+        <string name="MessageType" id="35"><constant value="UA2107"/></string>
+        <int32 name="DataTimestamp" id="10178"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"/>
+        <string name="SecurityID" id="48"/>
+        <string name="Symbol" id="55" charset="unicode"/>
+        <int32 name="ClosePrice" id="140" decimalPlaces="3"/>
+        <int32 name="Price" id="44" decimalPlaces="3"/>
+        <int64 name="VirtualAuctionQty" id="10127"/>
+    </template>
+    <template name="NGTSTransaction" id="3201">
+            <string name="MessageType" id="35"><constant value="UA3201"/></string>
+            <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+            <int32 name="TradeIndex" id="10011"><increment/></int32> 
+            <int32 name="TradeChannel" id="10115"><copy/></int32>
+            <string name="SecurityID" id="48" presence="optional"><copy/></string>
+            <int32 name="TradeTime" id="10013" presence="optional"><copy/></int32>
+            <int32 name="TradePrice" id="10014" presence="optional" decimalPlaces="3"><default/></int32>
+            <int64 name="TradeQty" id="10015" presence="optional" decimalPlaces="3"><default/></int64>
+            <int64 name="TradeMoney" id="10016" presence="optional" decimalPlaces="5"><default/></int64>
+            <int64 name="TradeBuyNo" id="10179" presence="optional"><default/></int64>
+            <int64 name="TradeSellNo" id="10180" presence="optional"><default/></int64>
+            <string name="TradeBSFlag" id="10192" presence="optional"><default/></string>
+    </template>
+    <template name="NGTSMarketData" id="3202">
+            <string name="MessageType" id="35"><constant value="UA3202"/></string>
+            <int32 name="DataTimeStamp" id="10178"><copy/></int32>
+            <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+            <string name="SecurityID" id="48"/>
+            <int32 name="ImageStatus" id="10146"/>
+            <int32 name="PreClosePx" id="140" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="OpenPx" id="10018" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="HighPx" id="332" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="LowPx" id="333" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="LastPx" id="31" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="ClosePx" id="10204" presence="optional" decimalPlaces="3"><default/></int32>
+            <string name="InstrumentStatus" id="10135" presence="optional"><default/></string>
+            <int32 name="NumTrades" id="8503" presence="optional"><default/></int32>
+            <int64 name="TotalVolumeTrade" id="387" presence="optional" decimalPlaces="3"><default/></int64>
+            <int64 name="TotalValueTrade" id="8504" presence="optional" decimalPlaces="5"><default/></int64>
+            <int64 name="TotalBidQty" id="10043" presence="optional" decimalPlaces="3"><default/></int64>
+            <int32 name="WeightedAvgBidPx" id="10039" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="AltWeightedAvgBidPx" id="10116" presence="optional" decimalPlaces="3"><default/></int32>
+            <int64 name="TotalOfferQty" id="10044" presence="optional" decimalPlaces="3"><default/></int64>
+            <int32 name="WeightedAvgOfferPx" id="10040" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="AltWeightedAvgOfferPx" id="10117" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="IOPV" id="10057" presence="optional" decimalPlaces="3"><default/></int32>
+            <int32 name="ETFBuyNumber" id="10193" presence="optional"><default/></int32>
+            <int64 name="ETFBuyAmount" id="10194" presence="optional" decimalPlaces="3"><default/></int64>
+            <int64 name="ETFBuyMoney" id="10195" presence="optional" decimalPlaces="5"><default/></int64>
+            <int32 name="ETFSellNumber" id="10196" presence="optional"><default/></int32>
+            <int64 name="ETFSellAmount" id="10197" presence="optional" decimalPlaces="3"><default/></int64>
+            <int64 name="ETFSellMoney" id="10198" presence="optional" decimalPlaces="5"><default/></int64>
+            <int32 name="YieldToMaturity" id="10060" presence="optional" decimalPlaces="4"><default/></int32>
+            <int64 name="TotalWarrantExecQty" id="10138" presence="optional" decimalPlaces="3"><default/></int64>
+            <int64 name="WarLowerPx" id="10139" presence="optional" decimalPlaces="3"><default/></int64>
+            <int64 name="WarUpperPx" id="10140" presence="optional" decimalPlaces="3"><default/></int64>
+            <int32 name="WithdrawBuyNumber" id="10184" presence="optional"><default/></int32>
+            <int64 name="WithdrawBuyAmount" id="10185" presence="optional" decimalPlaces="3"><default/></int64>
+            <int64 name="WithdrawBuyMoney" id="10186" presence="optional" decimalPlaces="5"><default/></int64>
+            <int32 name="WithdrawSellNumber" id="10187" presence="optional"><default/></int32>
+            <int64 name="WithdrawSellAmount" id="10188" presence="optional" decimalPlaces="3"><default/></int64>
+            <int64 name="WithdrawSellMoney" id="10189" presence="optional" decimalPlaces="5"><default/></int64>
+            <int32 name="TotalBidNumber" id="10190" presence="optional"><default/></int32>
+            <int32 name="TotalOfferNumber" id="10191" presence="optional"><default/></int32>
+            <int32 name="BidTradeMaxDuration" id="10203" presence="optional"><default/></int32>
+            <int32 name="OfferTradeMaxDuration" id="10202" presence="optional"><default/></int32>
+            <int32 name="NumBidOrders" id="10070" presence="optional"><default/></int32>
+            <int32 name="NumOfferOrders" id="10071" presence="optional"><default/></int32>
+            <sequence name="BidLevels" presence="optional">
+                <length name="NoBidLevel" id="10068" presence="optional"/>
+                <int32 name="PriceLeveOperator" id="10147" presence="optional"><default/></int32>
+                <int32 name="Price" id="44" presence="optional" decimalPlaces="3"><default/></int32>
+                <int64 name="OrderQty" id="39" presence="optional" decimalPlaces="3"><default/></int64>
+                <int32 name="NumOrders" id="10067" presence="optional"><default/></int32>
+                <sequence name="NoOrders" presence="optional">
+                    <length name="Orders" id="73" presence="optional"/>
+                    <int32 name="OrderQueueOperator" id="10148" presence="optional"><default/></int32>
+                    <int32 name="OrderQueueOperatorEntryID" id="10149" presence="optional"><default/></int32>
+                    <int64 name="OrderQty" id="38" presence="optional" decimalPlaces="3"><default/></int64>
+                </sequence>
+            </sequence>
+            <sequence name="OfferLevels" presence="optional">
+                <length name="NoOfferLevel" id="10069" presence="optional"/>
+                <int32 name="PriceLeveOperator" id="10147" presence="optional"><default/></int32>
+                <int32 name="Price" id="44" presence="optional" decimalPlaces="3"><default/></int32>
+                <int64 name="OrderQty" id="39" presence="optional" decimalPlaces="3"><default/></int64>
+                <int32 name="NumOrders" id="10067" presence="optional"><default/></int32>
+                <sequence name="NoOrders" presence="optional">
+                    <length name="Orders" id="73" presence="optional"/>
+                    <int32 name="OrderQueueOperator" id="10148" presence="optional"><default/></int32>
+                    <int32 name="OrderQueueOperatorEntryID" id="10149" presence="optional"><default/></int32>
+                    <int64 name="OrderQty" id="38" presence="optional" decimalPlaces="3"><default/></int64>
+                </sequence>
+            </sequence>
+    </template>
+    <template name="NGTSIndex" id="3113">
+            <string name="MessageType" id="35"><constant value="UA3113"/></string>
+            <int32 name="DataTimestamp" id="10178"><copy/></int32>
+            <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+            <string name="SecurityID" id="48"/>
+            <int64 name="PreCloseIndex" id="10007" presence="optional" decimalPlaces="5"><default/></int64>
+            <int64 name="OpenIndex" id="10006" presence="optional" decimalPlaces="5"><default/></int64>
+            <int64 name="Turnover" id="10118" presence="optional" decimalPlaces="1"><default/></int64>
+            <int64 name="HighIndex" id="10009" presence="optional" decimalPlaces="5"><default/></int64>
+            <int64 name="LowIndex" id="10010" presence="optional" decimalPlaces="5"><default/></int64>
+            <int64 name="LastIndex" id="10008" presence="optional" decimalPlaces="5"><default/></int64>
+            <int32 name="TradeTime" id="10013" presence="optional"><default/></int32>
+            <int64 name="TotalVolumeTraded" id="387" presence="optional" decimalPlaces="5"><default/></int64>
+            <int64 name="CloseIndex" id="10205" presence="optional" decimalPlaces="5"><default/></int64>
+    </template>
+    <template name="NGTSMarketOverview" id="3115">
+            <string name="MessageType" id="35"><constant value="UA3115"/></string>
+            <int32 name="DataTimestamp" id="10178"><copy/></int32>
+            <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+            <string name="SecurityID" id="48" presence="optional"/>
+            <int32 name="OrigTime" id="42" presence="optional"><default/></int32>
+            <int32 name="OrigDate" id="10003" presence="optional"><default/></int32>
+    </template>
+    <template name="NGTSVirtualAuctionPrice" id="3107">
+        <string name="MessageType" id="35"><constant value="UA3107"/></string>
+        <int32 name="DataTimestamp" id="10178"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+        <string name="SecurityID" id="48"/>
+        <int32 name="Price" id="44" decimalPlaces="3" presence="optional"/>
+        <int64 name="VirtualAuctionQty" id="10127" decimalPlaces="3" presence="optional"/>
+        <int64 name="LeavesQty" id="151" decimalPlaces="3" presence="optional"/>
+        <string name="Side" id="54" presence="optional"/>
+    </template>
+    <template name="Level1Data" id="5102">
+    		<string name="MessageType" id="35"><constant value="UA5102"/></string>
+    		<int32 name="DataTimestamp" id="10178" presence="optional"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+        <string name="SecurityID" id="48"/>
+        <string name="Symbol" id="55" charset="unicode"/>
+        <int32 name="PreClosePx" id="140" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="OpenPx" id="10018" presence="optional" decimalPlaces="3"><default/></int32>
+				<int32 name="HighPx" id="332" presence="optional" decimalPlaces="3"><default/></int32>
+				<int32 name="LowPx" id="333" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="LastPx" id="31" presence="optional" decimalPlaces="3"><default/></int32>
+        <sequence name="BidPriceLevel" presence="optional">
+	   	 			<length name="NoBidPriceLevel" id="10068" presence="optional"/>
+	   				<int64 name="BidSize" id="134"/>
+	    			<int32 name="BidPx" id="132" decimalPlaces="3"/>
+				</sequence>
+				<sequence name="OfferPriceLevel" presence="optional">
+	    			<length name="NoOfferPriceLevel" id="10069" presence="optional"/>
+	    			<int64 name="OfferSize" id="135"/>
+	    			<int32 name="OfferPx" id="133" decimalPlaces="3"/>
+        </sequence>
+        <int64 name="TotalVolumeTrade" id="387" presence="optional"><default/></int64>
+        <int64 name="TotalValueTrade" id="8504" presence="optional"><default/></int64>
+        <int32 name="PE" id="10128" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="DeletionIndicator" id="10130" presence="optional"><default/></int32>
+    </template>
+    <template name="ZqQdbjCjhq" id="6302">
+        <string name="MessageType" id="35"><constant value="UA6302"/></string>
+        <int32 name="DataTimeStamp" id="10178"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+        <string name="SecurityID" id="48"/>
+        <string name="Symbol" id="55" charset="unicode"/>
+        <int32 name="ImageStatus" id="10146"/>
+        <int32 name="TradeTime" id="10013" presence="optional"><default/></int32>
+        <int32 name="PreClosePx" id="140" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="PreWeightedAvgPx" id="11009" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="OpenPx" id="10018" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="HighPx" id="332" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="LowPx" id="333" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="LastPx" id="31" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="WeightedAvgPx" id="11010" presence="optional" decimalPlaces="3"><default/></int32>
+        <int64 name="TotalNumTrades" id="8503" presence="optional"><default/></int64>
+        <int64 name="TotalVolumeTrade" id="387" presence="optional"><default/></int64>
+        <int64 name="TotalValueTrade" id="8504" presence="optional"><default/></int64>
+        <int32 name="PreCloseYield" id="11001" presence="optional" decimalPlaces="4"><default/></int32>
+        <int32 name="PreWeightedAvgYield" id="11002" presence="optional" decimalPlaces="4"><default/></int32>
+        <int32 name="OpenYield" id="11003" presence="optional" decimalPlaces="4"><default/></int32>
+        <int32 name="HighYield" id="11004" presence="optional" decimalPlaces="4"><default/></int32>
+        <int32 name="LowYield" id="11005" presence="optional" decimalPlaces="4"><default/></int32>           
+        <int32 name="LastYield" id="11006" presence="optional" decimalPlaces="4"><default/></int32>
+        <int32 name="WeightedAvgYield" id="11007" presence="optional" decimalPlaces="4"><default/></int32>
+        <int32 name="AccruedInterestAmt" id="10105" presence="optional" decimalPlaces="4"><default/></int32>
+        <sequence name="BidLevels" presence="optional">
+            <length name="NoBidLevel" id="10068" presence="optional"/>
+            <int32 name="PriceLeveOperator" id="10147" presence="optional"><default/></int32>
+            <int32 name="BidNetPx" id="44" presence="optional" decimalPlaces="3"><default/></int32>
+            <int64 name="BidVolume" id="39" presence="optional"><default/></int64>
+            <int32 name="OrdersNum" id="10067" presence="optional"><default/></int32>
+            <sequence name="NoOrders" presence="optional">
+                <length name="Orders" id="73" presence="optional"/>
+                <int32 name="OrderQueueOperator" id="10148" presence="optional"><default/></int32>
+                <int32 name="BidOrderEntryId" id="10149" presence="optional"><default/></int32>
+                <int64 name="BidOrderNo" id="10065" presence="optional"><default/></int64>
+                <int32 name="BidAuctionTime" id="8500" presence="optional"><default/></int32>
+                <string name="BidAuctioneer" id="11012" presence="optional" charset="unicode"><default/></string>
+                <int64 name="BidOrderQty" id="38" presence="optional"><default/></int64>
+                <int32 name="BidYieldToMaturity" id="11008" presence="optional" decimalPlaces="4"><default/></int32>
+            </sequence>
+        </sequence>
+        <sequence name="OfferLevels" presence="optional">
+            <length name="NoOfferLevel" id="10069" presence="optional"/>
+            <int32 name="PriceLeveOperator" id="10147" presence="optional"><default/></int32>
+            <int32 name="OfferNetPx" id="44" presence="optional" decimalPlaces="3"><default/></int32>
+            <int64 name="OfferVolume" id="39" presence="optional"><default/></int64>
+            <int32 name="OrdersNum" id="10067" presence="optional"><default/></int32>
+            <sequence name="NoOrders" presence="optional">
+                <length name="Orders" id="73" presence="optional"/>
+                <int32 name="OrderQueueOperator" id="10148" presence="optional"><default/></int32>
+                <int32 name="OfferOrderEntryId" id="10149" presence="optional"><default/></int32>
+                <int64 name="OfferOrderNo" id="10065" presence="optional"><default/></int64>
+                <int32 name="OfferAuctionTime" id="8500" presence="optional"><default/></int32>
+                <string name="OfferAuctioneer" id="11012" presence="optional" charset="unicode"><default/></string>
+                <int64 name="OfferOrderQty" id="38" presence="optional"><default/></int64>
+                <int32 name="OfferYieldToMaturity" id="11008" presence="optional" decimalPlaces="4"><default/></int32>
+            </sequence>
+        </sequence>
+    </template>
+    <template name="ZqCjmx" id="6301">
+    	<string name="MessageType" id="35"><constant value="UA6301"/></string>
+    	<int32 name="DataTimestamp" id="10178" presence="optional"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+        <int32 name="TradeIndex" id="10011"><increment/></int32> 
+        <int32 name="TradeChannel" id="10115"><copy/></int32>
+        <string name="SecurityID" id="48"/>
+        <string name="Symbol" id="55" charset="unicode"/>
+        <int32 name="TradeDate" id="11013" presence="optional"><default/></int32>
+        <int32 name="TradeTime" id="10013" presence="optional"><default/></int32>
+        <int32 name="TradeNetPrice" id="10014" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="AccruedInterestAmt" id="10105" presence="optional" decimalPlaces="4"><default/></int32>
+        <int32 name="TradeFullPrice" id="11014" presence="optional" decimalPlaces="3"><default/></int32>
+	<int32 name="YieldToMaturity" id="10060" presence="optional" decimalPlaces="4"><default/></int32>
+        <int64 name="TradeQty" id="10015" presence="optional"><default/></int64>
+        <int64 name="TradeMoney" id="10016" presence="optional"><default/></int64>
+        <string name="TradeMethod" id="11015" presence="optional"><default/></string>
+    </template>
+	<template name="ISPData" id="8102">
+    	<string name="MessageType" id="35"><constant value="UA8102"/></string>
+    	<int32 name="DataTimestamp" id="10178" presence="optional"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+        <string name="SecurityID" id="48"/>
+        <int32 name="ImageStatus" id="10146"/>
+        <string name="Symbol" id="55" charset="unicode"/>
+        <int32 name="PreClosePx" id="140" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="OpenPx" id="10018" presence="optional" decimalPlaces="3"><default/></int32>
+		<int32 name="HighPx" id="332" presence="optional" decimalPlaces="3"><default/></int32>
+		<int32 name="LowPx" id="333" presence="optional" decimalPlaces="3"><default/></int32>
+        <int32 name="LastPx" id="31" presence="optional" decimalPlaces="3"><default/></int32>
+        <sequence name="BidPriceLevel" presence="optional">
+	   	 	<length name="NoBidPriceLevel" id="10068" presence="optional"/>
+	   		<int64 name="BidSize" id="134"/>
+	    	<int32 name="BidPx" id="132" decimalPlaces="3"/>
+		</sequence>
+		<sequence name="OfferPriceLevel" presence="optional">
+	    	<length name="NoOfferPriceLevel" id="10069" presence="optional"/>
+	    	<int64 name="OfferSize" id="135"/>
+	    	<int32 name="OfferPx" id="133" decimalPlaces="3"/>
+        </sequence>
+        <int64 name="TotalVolumeTrade" id="387" presence="optional"><default/></int64>
+        <int64 name="TotalValueTrade" id="8504" presence="optional" decimalPlaces="2"><default/></int64>
+        <string name="TradingPhaseCode" id="10131" presence="optional"><default/></string>
+    </template>    
+    <template name="OPTLevel1" id="9502">
+    	<string name="MessageType" id="35"><constant value="UA9502"/></string>
+    	<int32 name="DataTimestamp" id="10178" presence="optional"><copy/></int32>
+        <int32 name="DataStatus" id="10121" presence="optional"><default/></int32>
+        <string name="SecurityID" id="48"/>
+        <int32 name="ImageStatus" id="10146"/>        
+        <int64 name="PreSettlPrice" id="10132" presence="optional" decimalPlaces="3"><default/></int64>
+        <int64 name="SettlPrice" id="10133" presence="optional" decimalPlaces="3"><default/></int64>
+        <int64 name="OpenPx" id="10018" presence="optional" decimalPlaces="3"><default/></int64>
+				<int64 name="HighPx" id="332" presence="optional" decimalPlaces="3"><default/></int64>
+				<int64 name="LowPx" id="333" presence="optional" decimalPlaces="3"><default/></int64>
+        <int64 name="LastPx" id="31" presence="optional" decimalPlaces="3"><default/></int64>
+        <int64 name="AuctionPrice" id="44" presence="optional" decimalPlaces="3"><default/></int64>
+        <int64 name="AuctionQty" id="10127" presence="optional"><default/></int64>
+        <int64 name="Position" id="10136" presence="optional"><default/></int64>
+        <sequence name="BidPriceLevel" presence="optional">
+		   	 	<length name="NoBidPriceLevel" id="10068" presence="optional"/>
+		   		<int64 name="BidSize" id="134"/>
+		    	<int64 name="BidPx" id="132" decimalPlaces="3"/>
+				</sequence>
+				<sequence name="OfferPriceLevel" presence="optional">
+		    	<length name="NoOfferPriceLevel" id="10069" presence="optional"/>
+		    	<int64 name="OfferSize" id="135"/>
+		    	<int64 name="OfferPx" id="133" decimalPlaces="3"/>
+        </sequence>
+        <int64 name="TotalVolumeTrade" id="387" presence="optional"><default/></int64>
+        <int64 name="TotalValueTrade" id="8504" presence="optional" decimalPlaces="2"><default/></int64>
+        <string name="TradingPhaseCode" id="10131" presence="optional"><default/></string>
+    </template>
+</templates>

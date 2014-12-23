@@ -1,0 +1,84 @@
+################################################################################
+#
+# makefile for win32 only, created by feisi@hundsun.com
+#
+################################################################################
+
+TARGET_NAME     = FAST_API
+
+RSC             = rc
+LINK            = link
+DEF_FILE        = output.def
+BASE_DIR        = ..
+OUT_DIR         = $(BASE_DIR)\$(TARGET_NAME)
+INCLUDE_DIR     = /I$(BASE_DIR)\Impl
+
+OBJS            = $(OUT_DIR)\Decoder_Factory_Impl.obj     \
+                  $(OUT_DIR)\Fast_Decoder_Impl.obj         \
+                  $(OUT_DIR)\Fast_Define.obj        \
+                  $(OUT_DIR)\Fast_Message_Impl.obj       \
+				  $(OUT_DIR)\Fast_Record_Impl.obj       \
+                  $(OUT_DIR)\tinystr.obj  \
+				  $(OUT_DIR)\tinyxml.obj  \
+				  $(OUT_DIR)\tinyxmlerror.obj  \
+				  $(OUT_DIR)\tinyxmlparser.obj  
+                  
+
+!ifdef VER
+OBJS            = $(OBJS) $(OUT_DIR)\ver.res
+!endif
+
+!ifdef _DEBUG
+DEFS            = /D_DEBUG
+CPPFLAGS        = /Od /MTd /ZI /RTC1
+LINKFLAGS       = /debug
+!elseifdef RELEASE
+DEFS            = /DNDEBUG
+CPPFLAGS        = /O2 /MT
+!else
+CPPFLAGS        = /Od /MT /Zi
+LINKFLAGS       = /debug
+!endif
+
+TARGET    = $(OUT_DIR)\$(TARGET_NAME).dll
+DEFS      = $(DEFS) /DWIN32 /D_WINDOWS /D_USRDLL /D_WINDLL /D_MBCS /DSWITCH_CODE_TOHQ4 /D_CRT_SECURE_NO_WARNINGS
+CPPFLAGS  = $(CPPFLAGS) /EHsc /W3 /nologo /c /TP /Fo"$(OUT_DIR)\\" /Fd"$(OUT_DIR)\\"
+LINKFLAGS = $(LINKFLAGS) /nologo /dll /def:$(DEF_FILE) /out:$(TARGET) 
+            
+
+all: $(OUT_DIR) clean $(TARGET)
+
+$(OUT_DIR) :
+	mkdir $(OUT_DIR)
+
+$(TARGET) : $(OBJS)
+	$(LINK) $(LINKFLAGS) $(OBJS)
+
+$(OUT_DIR)\Decoder_Factory_Impl.obj : $(BASE_DIR)\Impl\Decoder_Factory_Impl.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\Decoder_Factory_Impl.cpp
+$(OUT_DIR)\Fast_Decoder_Impl.obj : $(BASE_DIR)\Impl\Fast_Decoder_Impl.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\Fast_Decoder_Impl.cpp
+$(OUT_DIR)\Fast_Define.obj : $(BASE_DIR)\Impl\Fast_Define.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\Fast_Define.cpp
+$(OUT_DIR)\Fast_Message_Impl.obj : $(BASE_DIR)\Impl\Fast_Message_Impl.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\Fast_Message_Impl.cpp
+$(OUT_DIR)\Fast_Record_Impl.obj : $(BASE_DIR)\Impl\Fast_Record_Impl.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\Fast_Record_Impl.cpp
+$(OUT_DIR)\tinystr.obj : $(BASE_DIR)\Impl\TinyXML\tinystr.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\TinyXML\tinystr.cpp
+$(OUT_DIR)\tinyxml.obj : $(BASE_DIR)\Impl\TinyXML\tinyxml.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\TinyXML\tinyxml.cpp
+$(OUT_DIR)\tinyxmlerror.obj : $(BASE_DIR)\Impl\TinyXML\tinyxmlerror.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\TinyXML\tinyxmlerror.cpp
+$(OUT_DIR)\tinyxmlparser.obj : $(BASE_DIR)\Impl\TinyXML\tinyxmlparser.cpp
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $(BASE_DIR)\Impl\TinyXML\tinyxmlparser.cpp
+
+
+$(OUT_DIR)\ver.res : ver.rc
+	$(RSC) /fo"$(OUT_DIR)\ver.res" /d "VER=\"$(VER)\"" ver.rc
+
+.cpp{$(OUT_DIR)}.obj::
+	$(CC) $(DEFS) $(CPPFLAGS) $(INCLUDE_DIR) $<
+
+clean:
+	del $(TARGET) $(OBJS)
